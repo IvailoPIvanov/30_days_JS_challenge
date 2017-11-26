@@ -7,7 +7,6 @@
 <body>
 
 <div class="site-wrap">
-
     <h1>Slide in on Scroll</h1>
 
     <p>Consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus
@@ -158,23 +157,22 @@
         };
     }
 
-    const imgSlider = document.querySelectorAll('slide-in');
+    const imgSlider = document.querySelectorAll('.slide-in');
 
     function slideImg() {
-
-        const slideInAt = (window.scrollY + window.innerHeight);
-        console.log(slideInAt);
         imgSlider.forEach(imgSlider => {
+            console.log('da');
             const slideInAt = (window.scrollY + window.innerHeight) - imgSlider.height / 2;
             const imgBottom = imgSlider.offsetTop + imgSlider.height;
             const isHalfShown = slideInAt > imgSlider.offsetTop;
-            const isNotScroolPast = window.scrollY < imgBottom;
-            if(isHalfShown && isNotScroolPast){
+            const isNotScrollPast = window.scrollY < imgBottom;
+            if (isHalfShown && isNotScrollPast) {
                 imgSlider.classList.add('active');
+                console.log('d');
             } else {
+                console.log('sd');
                 imgSlider.classList.remove('active');
             }
-            console.log(slideInAt);
         })
     }
 
